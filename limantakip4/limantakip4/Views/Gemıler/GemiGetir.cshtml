@@ -1,0 +1,48 @@
+﻿@model limantakip4.Models.Gemıı
+@{
+    ViewBag.Title = "GemiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("GemiGetir", "Gemiler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMIYUK)
+        @Html.TextBoxFor(k => k.GEMIYUK, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMIYUKTONU)
+        @Html.TextBoxFor(k => k.GEMIYUKTONU, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMIMURETTEBAT)
+        @Html.TextBoxFor(k => k.GEMIMURETTEBAT, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMIBAYRAK)
+        @Html.TextBoxFor(k => k.GEMIBAYRAK, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMIBULLIMAN)
+        @Html.TextBoxFor(k => k.GEMIBULLIMAN, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMIULLIMAN)
+        @Html.TextBoxFor(k => k.GEMIULLIMAN, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMISIRKET)
+        @Html.TextBoxFor(k => k.GEMISIRKET, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMICIKTARIH)
+        @Html.TextBoxFor(k => k.GEMICIKTARIH, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.GEMIVARTARIH)
+        @Html.TextBoxFor(k => k.GEMIVARTARIH, new { @class = "form-control" })
+
+
+        <div>
+            <button class="btn btn-warning">GUNCELLE</button>
+        </div>
+
+
+    </div>
+}
+

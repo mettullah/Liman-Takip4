@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="takipsistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Gemıı">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GEMIYUK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GEMIYUKTONU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GEMITONAJ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GEMIMURETTEBAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GEMIBAYRAK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GEMIBULLIMAN" Type="Int32" />
+    <Property Name="GEMIULLIMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GEMISIRKET" Type="Int32" />
+    <Property Name="GEMICIKTARIH" Type="DateTime" Precision="0" />
+    <Property Name="GEMIVARTARIH" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Sırkett" Relationship="Self.FK_Gemıı_Sırkett" FromRole="Gemıı" ToRole="Sırkett" />
+    <NavigationProperty Name="Lımann" Relationship="Self.FK_Lımann_Gemıı" FromRole="Gemıı" ToRole="Lımann" />
+  </EntityType>
+  <EntityType Name="Lımann">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LIMANAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LIMANSEHIR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LIMANULKE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LIMANGEMI" Type="Int32" />
+    <NavigationProperty Name="Gemıı" Relationship="Self.FK_Lımann_Gemıı" FromRole="Lımann" ToRole="Gemıı" />
+  </EntityType>
+  <EntityType Name="Sırkett">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SIRKETAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gemıı" Relationship="Self.FK_Gemıı_Sırkett" FromRole="Sırkett" ToRole="Gemıı" />
+  </EntityType>
+  <EntityType Name="uye">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanıcıadı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Gemıı_Sırkett">
+    <End Role="Sırkett" Type="Self.Sırkett" Multiplicity="0..1" />
+    <End Role="Gemıı" Type="Self.Gemıı" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sırkett">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Gemıı">
+        <PropertyRef Name="GEMISIRKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lımann_Gemıı">
+    <End Role="Gemıı" Type="Self.Gemıı" Multiplicity="0..1" />
+    <End Role="Lımann" Type="Self.Lımann" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gemıı">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Lımann">
+        <PropertyRef Name="LIMANGEMI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="takipsistemiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gemıı" EntityType="Self.Gemıı" />
+    <EntitySet Name="Lımann" EntityType="Self.Lımann" />
+    <EntitySet Name="Sırkett" EntityType="Self.Sırkett" />
+    <EntitySet Name="uye" EntityType="Self.uye" />
+    <AssociationSet Name="FK_Gemıı_Sırkett" Association="Self.FK_Gemıı_Sırkett">
+      <End Role="Sırkett" EntitySet="Sırkett" />
+      <End Role="Gemıı" EntitySet="Gemıı" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lımann_Gemıı" Association="Self.FK_Lımann_Gemıı">
+      <End Role="Gemıı" EntitySet="Gemıı" />
+      <End Role="Lımann" EntitySet="Lımann" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

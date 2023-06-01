@@ -1,0 +1,47 @@
+﻿@model limantakip4.Models.Gemıı
+@{
+    ViewBag.Title = "GemitEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <form class="form-group" method="post">
+        <div>
+            <label>Gemi Yükü</label>
+            <input type="text" class="form-control" name="GEMIYUK" />
+        </div>
+        <div>
+            <label>Gemi Yük Tonu</label>
+            <input type="text" class="form-control" name="GEMIYUKTONU" />
+        </div>
+        <div>
+            <label>Gemi Murettebat</label>
+            <input type="text" class="form-control" name="GEMIMURETTEBAT" />
+        </div>
+        <div>
+            <label>Gemi Bayrak</label>
+            <input type="text" class="form-control" name="GEMIBAYRAK" />
+        </div>
+        <div>
+            <label>Gemi Ulaşacağı Liman</label>
+            @Html.DropDownListFor(m => m.GEMIULLIMAN, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        </div>
+        <div>
+            <label>Gemi Bulunduğu Liman</label>
+            <input type="text" class="form-control" name="GEMIBULLIMAN" />
+        </div>
+        <div>
+            <label>Gemi Çıkış Tarihi</label>
+            <input type="text" class="form-control" name="GEMICIKTARIH" />
+        </div>
+        <div>
+            <label>Gemi Varış Tarihi</label>
+            <input type="text" class="form-control" name="GEMIVARTARIH" />
+        </div>
+        <div style="margin-top:20px">
+
+
+            <button class="btn btn-info">Kaydet</button>
+        </div>
+    </form>
+
+

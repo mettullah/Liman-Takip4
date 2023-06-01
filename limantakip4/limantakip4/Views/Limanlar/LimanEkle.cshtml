@@ -1,0 +1,27 @@
+﻿@model limantakip4.Models.Lımann
+@{
+    ViewBag.Title = "LimanEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <form class="form-group" method="post">
+        <div>
+            <label>Liman Ad</label>
+            <input type="text" class="form-control" name="LIMANAD" />
+        </div>
+        <div>
+            <label>Liman Sehir</label>
+            <input type="text" class="form-control" name="LIMANSEHIR" />
+        </div>
+        <div>
+            <label>Liman Ülke</label>
+            <input type="text" class="form-control" name="LIMANULKE" />
+        </div>
+        
+        <div style="margin-top:20px">
+
+
+            <button class="btn btn-info">Kaydet</button>
+        </div>
+    </form>
+

@@ -1,0 +1,76 @@
+﻿@using limantakip4.Models
+@model List<Gemıı>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_GemiLayout.cshtml";
+}
+
+<h2>Index</h2>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>GEMIYUK</th>
+            <th>GEMIYUKTONU</th>
+            <th>GEMITONAJ</th>
+            <th>GEMIMURETTEBAT</th>
+            <th>GEMIBAYRAK</th>
+            <th>GEMIBULLIMAN</th>
+            <th>GEMIULLIMAN</th>
+            <th>GEMISIRKET</th>
+            <th>GEMICIKTARIH</th>
+            <th>GEMIVARTARIH</th>
+            <th>SIL</th>
+            <th>GUNCELLE</th>
+
+        </tr>
+    </thead>
+    @foreach (var gemi in Model)
+    {
+        <tr>
+            <td>@gemi.ID </td>
+            <td>@gemi.GEMIYUK </td>
+            <td>@gemi.GEMIYUKTONU </td>
+            <td>@gemi.GEMITONAJ </td>
+            <td>@gemi.GEMIMURETTEBAT </td>
+            <td>@gemi.GEMIBAYRAK </td>
+            <td>@gemi.GEMIBULLIMAN</td>
+            <td>@gemi.GEMIULLIMAN </td>
+            <td>@gemi.GEMISIRKET</td>
+            <td>@gemi.GEMICIKTARIH </td>
+            <td>@gemi.GEMIVARTARIH </td>
+
+            <td>
+
+                <a href="/Gemıler/SIL/@gemi.ID" class="btn btn-danger">SIL</a>
+
+
+            </td>
+            <td>
+                <a href="/Gemıler/GemiGetir/@gemi.ID" class="btn btn-primary">GUNCELLE</a>
+
+            </td>
+        </tr>
+    }
+
+
+
+
+</table>
+<a href="/Gemıler/GemitEkle" class="btn btn-primary">Gemi Ekle</a>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-colvis-1.3.1/b-flash-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/sc-1.4.2/se-1.2.2/datatables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tbl1').DataTable({
+            language: {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+            }
+        });
+    });
+</script>
+
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable();
+
+</script>

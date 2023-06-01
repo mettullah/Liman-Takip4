@@ -1,0 +1,32 @@
+﻿@model limantakip4.Models.Lımann
+@{
+    ViewBag.Title = "LimanGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("LimanGetir", "Lımanlar", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.LIMANAD)
+        @Html.TextBoxFor(k => k.LIMANAD, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.LIMANSEHIR)
+        @Html.TextBoxFor(k => k.LIMANSEHIR, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.LIMANULKE)
+        @Html.TextBoxFor(k => k.LIMANULKE, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.LIMANGEMI)
+        @Html.TextBoxFor(k => k.LIMANGEMI, new { @class = "form-control" })
+        <div>
+            <button class="btn btn-warning">GUNCELLE</button>
+        </div>
+
+
+    </div>
+}
+
+
+

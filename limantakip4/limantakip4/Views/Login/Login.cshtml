@@ -1,0 +1,53 @@
+﻿@model limantakip4.Models.uye
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{<fieldset>
+
+        <legend>Kullanıcı Giriş Ekranı</legend>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.kullanıcıadı)</td>
+                <td>@Html.TextBoxFor(a => a.kullanıcıadı)</td>
+                <td>@Html.ValidationMessageFor(a => a.kullanıcıadı)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.sifre)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.sifre)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.sifre)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}

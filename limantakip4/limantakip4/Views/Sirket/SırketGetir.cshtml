@@ -1,0 +1,22 @@
+﻿@model limantakip4.Models.Sırkett
+@{
+    ViewBag.Title = "SırketGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("SırketGetir", "Sirket", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.SIRKETAD)
+        @Html.TextBoxFor(k => k.SIRKETAD, new { @class = "form-control" })
+
+        <div>
+            <button class="btn btn-warning">GUNCELLE</button>
+        </div>
+
+
+    </div>
+}

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="takipsistemiModelStoreContainer" CdmEntityContainer="takipsistemiEntities">
+    <EntitySetMapping Name="Gemıı">
+      <EntityTypeMapping TypeName="takipsistemiModel.Gemıı">
+        <MappingFragment StoreEntitySet="Gemıı">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GEMIYUK" ColumnName="GEMIYUK" />
+          <ScalarProperty Name="GEMIYUKTONU" ColumnName="GEMIYUKTONU" />
+          <ScalarProperty Name="GEMITONAJ" ColumnName="GEMITONAJ" />
+          <ScalarProperty Name="GEMIMURETTEBAT" ColumnName="GEMIMURETTEBAT" />
+          <ScalarProperty Name="GEMIBAYRAK" ColumnName="GEMIBAYRAK" />
+          <ScalarProperty Name="GEMIBULLIMAN" ColumnName="GEMIBULLIMAN" />
+          <ScalarProperty Name="GEMIULLIMAN" ColumnName="GEMIULLIMAN" />
+          <ScalarProperty Name="GEMISIRKET" ColumnName="GEMISIRKET" />
+          <ScalarProperty Name="GEMICIKTARIH" ColumnName="GEMICIKTARIH" />
+          <ScalarProperty Name="GEMIVARTARIH" ColumnName="GEMIVARTARIH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lımann">
+      <EntityTypeMapping TypeName="takipsistemiModel.Lımann">
+        <MappingFragment StoreEntitySet="Lımann">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LIMANAD" ColumnName="LIMANAD" />
+          <ScalarProperty Name="LIMANSEHIR" ColumnName="LIMANSEHIR" />
+          <ScalarProperty Name="LIMANULKE" ColumnName="LIMANULKE" />
+          <ScalarProperty Name="LIMANGEMI" ColumnName="LIMANGEMI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sırkett">
+      <EntityTypeMapping TypeName="takipsistemiModel.Sırkett">
+        <MappingFragment StoreEntitySet="Sırkett">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SIRKETAD" ColumnName="SIRKETAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uye">
+      <EntityTypeMapping TypeName="takipsistemiModel.uye">
+        <MappingFragment StoreEntitySet="uye">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="kullanıcıadı" ColumnName="kullanıcıadı" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

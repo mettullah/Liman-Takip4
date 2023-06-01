@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="takipsistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Gemıı">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GEMIYUK" Type="nvarchar" MaxLength="50" />
+    <Property Name="GEMIYUKTONU" Type="nvarchar" MaxLength="50" />
+    <Property Name="GEMITONAJ" Type="nvarchar" MaxLength="50" />
+    <Property Name="GEMIMURETTEBAT" Type="nvarchar" MaxLength="50" />
+    <Property Name="GEMIBAYRAK" Type="nvarchar" MaxLength="50" />
+    <Property Name="GEMIBULLIMAN" Type="int" />
+    <Property Name="GEMIULLIMAN" Type="nvarchar" MaxLength="50" />
+    <Property Name="GEMISIRKET" Type="int" />
+    <Property Name="GEMICIKTARIH" Type="date" />
+    <Property Name="GEMIVARTARIH" Type="date" />
+  </EntityType>
+  <EntityType Name="Lımann">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LIMANAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="LIMANSEHIR" Type="nvarchar" MaxLength="50" />
+    <Property Name="LIMANULKE" Type="nvarchar" MaxLength="50" />
+    <Property Name="LIMANGEMI" Type="int" />
+  </EntityType>
+  <EntityType Name="Sırkett">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SIRKETAD" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="uye">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanıcıadı" Type="nvarchar" MaxLength="50" />
+    <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Gemıı_Sırkett">
+    <End Role="Sırkett" Type="Self.Sırkett" Multiplicity="0..1" />
+    <End Role="Gemıı" Type="Self.Gemıı" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sırkett">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Gemıı">
+        <PropertyRef Name="GEMISIRKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lımann_Gemıı">
+    <End Role="Gemıı" Type="Self.Gemıı" Multiplicity="0..1" />
+    <End Role="Lımann" Type="Self.Lımann" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gemıı">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Lımann">
+        <PropertyRef Name="LIMANGEMI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="takipsistemiModelStoreContainer">
+    <EntitySet Name="Gemıı" EntityType="Self.Gemıı" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lımann" EntityType="Self.Lımann" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sırkett" EntityType="Self.Sırkett" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Gemıı_Sırkett" Association="Self.FK_Gemıı_Sırkett">
+      <End Role="Sırkett" EntitySet="Sırkett" />
+      <End Role="Gemıı" EntitySet="Gemıı" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lımann_Gemıı" Association="Self.FK_Lımann_Gemıı">
+      <End Role="Gemıı" EntitySet="Gemıı" />
+      <End Role="Lımann" EntitySet="Lımann" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
